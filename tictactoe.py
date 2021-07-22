@@ -1,3 +1,5 @@
+import mysql.connector
+mydb = mysql.connector.connect(host='localhost',user = 'root',password='admin',database='bored_button')
 board = {
     'T1': ' ', 'T2': ' ', 'T3': ' ',
     'M1': ' ', 'M2': ' ', 'M3': ' ',
@@ -7,7 +9,7 @@ board = {
 player = 1
 total_moves = 0
 end_check = 0
-
+high=0
 
 def check():
     if board['T1'] == 'X' and board['T2'] == 'X' and board['T3'] == 'X':
@@ -93,3 +95,9 @@ while 0 < 1 :
     total_moves += 1
     print('***************************')
     print()
+cur= mydb.cursor()
+a=high+1
+name=input('enter name: ')
+s = 'update login set tictac=%s where name="%s" and tictac<%s'%(a,name,a)
+cur.execute(s)
+mydb.commit()

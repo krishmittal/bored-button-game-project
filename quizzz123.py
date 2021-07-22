@@ -1,6 +1,4 @@
 import random
-import mysql.connector
-mydb = mysql.connector.connect(host='localhost',user = 'root',password='admin',database='bored_button')
 high = 0
 a=("what is the devil's number ?")
 b=("Who is the youngest self-made 10^90?")
@@ -113,10 +111,4 @@ for x in range(z):
             l1.remove(y)
         else:
             print("wrong")
-print("thank you for playing")  
-cur= mydb.cursor()
-a=high
-name=input('enter name: ')
-s = 'update login set quiz=%s where name="%s" and quiz<%s'%(a,name,a)
-cur.execute(s)
-mydb.commit()
+print("thank you for playing")            

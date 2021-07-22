@@ -116,7 +116,7 @@ print("thank you for playing")
 cur= mydb.cursor()
 a=high
 name=input('enter name: ')
-s = 'update login set complyrics=%s where name="%s"'%(a,name)
+s = 'update login set complyrics=%s where name="%s" and complyrics<%s'%(a,name,a)
 cur.execute(s)
 mydb.commit()
 

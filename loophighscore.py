@@ -1,4 +1,22 @@
 import random
+import mysql.connector
+mydb = mysql.connector.connect(host='localhost',user = 'root',password='admin',database='bored_button')
+new=input("are you a new user:(y or no) ")
+if new=='y':
+    def username():
+        import mysql.connector
+        mydb=mysql.connector.connect(host="localhost",user="root",passwd="admin",database="bored_button")
+        n=input("enter username: ")
+        mycursor=mydb.cursor()
+        mycursor.execute("insert into login(name) values('%s')"%(n,))
+    def password():
+        import mysql.connector
+        mydb=mysql.connector.connect(host="localhost",user="root",passwd="admin",database="bored_button")
+        p=int(input("enter password: "))
+        mycursor=mydb.cursor()
+        mycursor.execute("insert into login(password) values(%s)"%(p,))
+    username()
+    password()
 def a():
     import completeelyricsfinal123withhighscore
 def b():
@@ -24,3 +42,14 @@ while d=='yes':
            b()
        else:
            d=input('do u want to play again(yes,no):')
+see=input("do u want to see highscore: ")
+if see=='y':
+    cur=mydb.cursor()
+    namehere=input('enter name: ')
+    s='select * from login where name="%s"'
+    cur.execute(s%namehere)
+    myresult=cur.fetchall()
+    for i in myresult:
+        print(i)
+    
+    
